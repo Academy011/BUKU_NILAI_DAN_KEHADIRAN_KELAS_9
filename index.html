@@ -128,7 +128,6 @@
     </div>
 
     <script>
-        // Data Siswa Kelas 9A & 9B
         const dataSiswa = {
             "9A": [
                 "Afifah", "Ahyaruddin", "Ainun Fadilla", "ALONA APRILIANI DEDE", "AMELIA", 
@@ -143,17 +142,15 @@
                 "FIRNA WATI", "HADRIANA", "HICMAYANTI", "Isra Yanti", "Khusnul Hamidan", 
                 "M. IKHWANUDDIN IBNU BAHAR", "Muhamad  Al faris", "Muhamad Celsin", "Muhamad Hajran", 
                 "Muhammad Fadly", "Muhammad Nizam Algazali", "Muhammad Yusuf", "NABILA PUTRI ANAWAI", 
-                "Nisra", "Nur Riskiana", "Putri Ayu Febria", "Ratna", "Riski Al Fikran", 
+                "Nisra", "Nur Riskiani", "Putri Ayu Febria", "Ratna", "Riski Al Fikran", 
                 "Salsah Sabila", "Sarfin", "Sri Asyifa", "SUMARLIN WIDYA PUTRA", "Wilda"
             ]
         };
 
-        // Urutan Kolom Sesuai Spreadsheet
         const urutanKolomSpreadsheet = [
             ...dataSiswa["9A"], ...dataSiswa["9B"]
         ];
 
-        // Tema Warna Pastel Kartu Siswa
         const pastelColors = [
             { bg: "bg-rose-50/70 border-rose-200/80 text-rose-800", btn: "bg-rose-100 text-rose-700 hover:bg-rose-200", focus: "focus:ring-rose-300 focus:border-rose-400" },
             { bg: "bg-amber-50/70 border-amber-200/80 text-amber-800", btn: "bg-amber-100 text-amber-700 hover:bg-amber-200", focus: "focus:ring-amber-300 focus:border-amber-400" },
@@ -169,7 +166,6 @@
         let currentKelas = "9A";
         let nilaiSiswa = {};
 
-        // Inisialisasi awal nilai kosong
         urutanKolomSpreadsheet.forEach(nama => {
             nilaiSiswa[nama] = "";
         });
@@ -215,8 +211,12 @@
 
             listSiswa.forEach((nama, idx) => {
                 const colorTheme = pastelColors[idx % pastelColors.length];
-                const inputId = `input-${nama.replace(/\s+/g, '-')}`;
+                // Pembersihan karakter non-huruf/angka untuk ID elemen HTML agar aman
+                const inputId = `input-${nama.replace(/[^a-zA-Z0-9]/g, '-')}`;
                 const safeValue = nilaiSiswa[nama] !== undefined ? nilaiSiswa[nama] : "";
+                
+                // Meloloskan tanda petik satu (') agar aman dilempar ke argumen fungsi onclick string
+                const namaAmanArgumen = nama.replace(/'/g, "\\'");
 
                 const itemDiv = document.createElement('div');
                 itemDiv.className = `p-5 rounded-2xl border ${colorTheme.bg} flex flex-col justify-between shadow-xs hover:shadow-md transition duration-200`;
@@ -230,7 +230,7 @@
                             <input type="text" 
                                    id="${inputId}" 
                                    value="${safeValue}" 
-                                   oninput="updateNilaiSiswa('${nama}', this.value)" 
+                                   oninput="updateNilaiSiswa('${namaAmanArgumen}', this.value)" 
                                    placeholder="0"
                                    class="w-full bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-center font-black text-slate-800 text-base focus:outline-none focus:ring-3 ${colorTheme.focus} transition shadow-inner">
                         </div>
@@ -241,27 +241,27 @@
                 if (isKehadiran) {
                     selectionSection = `
                         <div class="grid grid-cols-5 gap-1.5 mt-auto">
-                            <button onclick="setNilaiCepat('${nama}', 'Hadir')" class="py-2 rounded-xl text-xs font-black bg-emerald-500 hover:bg-emerald-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">H</button>
-                            <button onclick="setNilaiCepat('${nama}', 'Izin')" class="py-2 rounded-xl text-xs font-black bg-sky-500 hover:bg-sky-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">I</button>
-                            <button onclick="setNilaiCepat('${nama}', 'Sakit')" class="py-2 rounded-xl text-xs font-black bg-amber-500 hover:bg-amber-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">S</button>
-                            <button onclick="setNilaiCepat('${nama}', 'Alpa')" class="py-2 rounded-xl text-xs font-black bg-rose-500 hover:bg-rose-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">A</button>
-                            <button onclick="setNilaiCepat('${nama}', 'Bolos')" class="py-2 rounded-xl text-xs font-black bg-violet-600 hover:bg-violet-700 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">B</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', 'Hadir', '${inputId}')" class="py-2 rounded-xl text-xs font-black bg-emerald-500 hover:bg-emerald-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">H</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', 'Izin', '${inputId}')" class="py-2 rounded-xl text-xs font-black bg-sky-500 hover:bg-sky-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">I</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', 'Sakit', '${inputId}')" class="py-2 rounded-xl text-xs font-black bg-amber-500 hover:bg-amber-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">S</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', 'Alpa', '${inputId}')" class="py-2 rounded-xl text-xs font-black bg-rose-500 hover:bg-rose-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">A</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', 'Bolos', '${inputId}')" class="py-2 rounded-xl text-xs font-black bg-violet-600 hover:bg-violet-700 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">B</button>
                         </div>
                         <p class="text-[9px] text-slate-400 font-extrabold mt-2 text-center uppercase tracking-wider">H: Hadir | I: Izin | S: Sakit | A: Alpa | B: Bolos</p>
                     `;
                 } else {
                     selectionSection = `
                         <div class="grid grid-cols-5 gap-1.5 mt-auto">
-                            <button onclick="setNilaiCepat('${nama}', '10')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">10</button>
-                            <button onclick="setNilaiCepat('${nama}', '20')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">20</button>
-                            <button onclick="setNilaiCepat('${nama}', '30')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">30</button>
-                            <button onclick="setNilaiCepat('${nama}', '40')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">40</button>
-                            <button onclick="setNilaiCepat('${nama}', '50')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">50</button>
-                            <button onclick="setNilaiCepat('${nama}', '60')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">60</button>
-                            <button onclick="setNilaiCepat('${nama}', '70')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">70</button>
-                            <button onclick="setNilaiCepat('${nama}', '80')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">80</button>
-                            <button onclick="setNilaiCepat('${nama}', '90')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">90</button>
-                            <button onclick="setNilaiCepat('${nama}', '100')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">100</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '10', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">10</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '20', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">20</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '30', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">30</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '40', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">40</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '50', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">50</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '60', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">60</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '70', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">70</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '80', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">80</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '90', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">90</button>
+                            <button onclick="setNilaiCepat('${namaAmanArgumen}', '100', '${inputId}')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">100</button>
                         </div>
                     `;
                 }
@@ -276,10 +276,9 @@
             nilaiSiswa[nama] = value;
         }
 
-        function setNilaiCepat(nama, nilai) {
+        function setNilaiCepat(nama, nilai, idElemen) {
             nilaiSiswa[nama] = nilai;
-            const inputId = `input-${nama.replace(/\s+/g, '-')}`;
-            const targetInput = document.getElementById(inputId);
+            const targetInput = document.getElementById(idElemen);
             if (targetInput) {
                 targetInput.value = nilai;
             }
