@@ -4,44 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buku Nilai Matematika dan T I K SMPN 1 Napano Kusambi</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Lucide Icons untuk ikon menarik -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-slate-50 min-h-screen text-slate-800 font-sans pb-12 antialiased">
 
-    <!-- Container Utama -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         
-        <!-- Header Judul -->
         <header class="bg-gradient-to-r from-teal-100 via-emerald-50 to-cyan-100 rounded-3xl p-6 md:p-8 shadow-sm border border-emerald-100 mb-8 text-center relative overflow-hidden flex flex-col items-center justify-center gap-3">
             <div class="absolute -right-8 -top-8 w-32 h-32 bg-emerald-200/40 rounded-full blur-2xl"></div>
             <div class="absolute -left-8 -bottom-8 w-32 h-32 bg-cyan-200/40 rounded-full blur-2xl"></div>
             
-            <!-- Logo Sekolah (Tengah Paling Atas) -->
-            <div class="shrink-0 z-10 mb-2">
-                <img src="p2.png" alt="Logo Sekolah" class="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-sm" onerror="this.style.display='none'">
+            <div class="shrink-0 z-10 mb-2 mx-auto flex justify-center items-center">
+                <img src="https://lh3.googleusercontent.com/d/1jMBwc4Q62IM6acSfnPPlTQMHTPy0T4zh" alt="Logo Sekolah" class="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md" onerror="this.src='https://placehold.co/100x100?text=LOGO'">
             </div>
             
-            <!-- Teks Judul Jurnal -->
-            <div class="relative z-10 max-w-2xl mx-auto">
-                <h1 class="text-xl md:text-3xl font-black text-emerald-800 tracking-wide leading-tight uppercase">
+            <div class="relative z-10 max-w-2xl mx-auto text-center">
+                <h1 class="text-xl md:text-3xl font-black text-emerald-800 tracking-wide leading-tight uppercase m-0">
                     Buku Nilai dan Kehadiran Matematika & T I K
                 </h1>
-                <p class="text-sm md:text-lg font-bold text-emerald-600 mt-2">
+                <p class="text-sm md:text-lg font-bold text-emerald-600 mt-2 mb-0">
                     SMPN 1 NAPANO KUSAMBI • KELAS 9
                 </p>
             </div>
         </header>
 
-        <!-- Form Parameter Jurnal (Tanggal, Materi, Asesmen, Kelas) -->
         <section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-8">
             <h2 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <i data-lucide="sliders" class="w-4 h-4 text-emerald-500"></i> Pengaturan Jurnal & Asesmen
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Tanggal -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1.5 uppercase">Tanggal</label>
                     <div class="relative">
@@ -49,13 +41,11 @@
                     </div>
                 </div>
 
-                <!-- Kolom Materi -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1.5 uppercase">Materi Pembelajaran</label>
                     <input type="text" id="input-materi" placeholder="Contoh: Perpangkatan & Bentuk Akar" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:bg-white rounded-xl px-3 py-2.5 text-sm outline-none transition">
                 </div>
 
-                <!-- Jenis Asesmen -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1.5 uppercase">Jenis Asesmen</label>
                     <select id="select-asesmen" onchange="handleAsesmenChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:bg-white rounded-xl px-3 py-2.5 text-sm outline-none transition cursor-pointer">
@@ -70,7 +60,6 @@
                     </select>
                 </div>
 
-                <!-- Pilih Kelas -->
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1.5 uppercase">Filter Kelas</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -85,7 +74,6 @@
             </div>
         </section>
 
-        <!-- Container Grid Siswa -->
         <main class="mb-12">
             <div class="flex items-center justify-between mb-4 px-1">
                 <h3 class="text-base font-extrabold text-slate-700 flex items-center gap-2">
@@ -97,13 +85,10 @@
                 </button>
             </div>
 
-            <!-- Grid Siswa -->
             <div id="grid-siswa" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Diisi otomatis oleh JavaScript -->
-            </div>
+                </div>
         </main>
 
-        <!-- Bagian Pengiriman Data / Footer -->
         <footer class="bg-white rounded-2xl p-6 shadow-md border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-center md:text-left">
                 <p class="text-xs text-slate-400 font-semibold uppercase">Tujuan Integrasi</p>
@@ -119,8 +104,7 @@
 
     </div>
 
-    <!-- NOTIFIKASI MODAL SUKSES -->
-    <div id="modal-notif" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center z-50 p-4 animate-fade-in">
+    <div id="modal-notif" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
         <div class="bg-white rounded-2xl shadow-2xl p-6 max-w-sm w-full text-center border border-slate-100 transform scale-95 transition-transform duration-300">
             <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
                 <i data-lucide="check-circle" class="w-10 h-10"></i>
@@ -135,7 +119,6 @@
         </div>
     </div>
 
-    <!-- NOTIFIKASI ERROR / LOADING -->
     <div id="modal-loading" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs hidden items-center justify-center z-50 p-4">
         <div class="bg-white rounded-2xl p-6 max-w-xs w-full text-center shadow-xl">
             <div class="animate-spin rounded-full h-10 w-10 border-4 border-slate-200 border-t-emerald-500 mx-auto mb-4"></div>
@@ -145,7 +128,7 @@
     </div>
 
     <script>
-        // Data Siswa Kelas 9A & 9B Sesuai Permintaan
+        // Data Siswa Kelas 9A & 9B
         const dataSiswa = {
             "9A": [
                 "Afifah", "Ahyaruddin", "Ainun Fadilla", "ALONA APRILIANI DEDE", "AMELIA", 
@@ -165,23 +148,12 @@
             ]
         };
 
-        // Urutan Kolom yang Sesuai dengan Spreadsheet (Mandatori)
+        // Urutan Kolom Sesuai Spreadsheet
         const urutanKolomSpreadsheet = [
-            "Afifah", "Ahyaruddin", "Ainun Fadilla", "ALONA APRILIANI DEDE", "AMELIA", 
-            "anugra", "DEWI", "Dwi Aisya Qoila", "Dzulfikar Dzawan", "Faiz Fauzan Dangga", 
-            "Faza Az-Zahro", "La Ode Adzan Maulana", "La Ode Jumadil", "la ode muh rizki al ghifari", 
-            "Muhamad Arsaban", "Muhamad Hijran", "Muhamad Jainul", "Muhammad Zabbarrudin", 
-            "NISA WAHYUNI", "Nur Riskiani", "REHAN ANDI BASRI", "Saifatul Ma'wa", "Sartina", 
-            "SItti Musdhalifa", "Syahratu Sita", "Viola",
-            "AFIFA NAHDA RAFANDA", "Ahmad Khairul Anam", "Azzura Febrianti", "candra kirana", 
-            "FIRNA WATI", "HADRIANA", "HICMAYANTI", "Isra Yanti", "Khusnul Hamidan", 
-            "M. IKHWANUDDIN IBNU BAHAR", "Muhamad  Al faris", "Muhamad Celsin", "Muhamad Hajran", 
-            "Muhammad Fadly", "Muhammad Nizam Algazali", "Muhammad Yusuf", "NABILA PUTRI ANAWAI", 
-            "Nisra", "Nur Riskiana", "Putri Ayu Febria", "Ratna", "Riski Al Fikran", 
-            "Salsah Sabila", "Sarfin", "Sri Asyifa", "SUMARLIN WIDYA PUTRA", "Wilda"
+            ...dataSiswa["9A"], ...dataSiswa["9B"]
         ];
 
-        // Palet warna pastel yang menarik & bergradasi lembut untuk grid kartu siswa
+        // Tema Warna Pastel Kartu Siswa
         const pastelColors = [
             { bg: "bg-rose-50/70 border-rose-200/80 text-rose-800", btn: "bg-rose-100 text-rose-700 hover:bg-rose-200", focus: "focus:ring-rose-300 focus:border-rose-400" },
             { bg: "bg-amber-50/70 border-amber-200/80 text-amber-800", btn: "bg-amber-100 text-amber-700 hover:bg-amber-200", focus: "focus:ring-amber-300 focus:border-amber-400" },
@@ -194,30 +166,25 @@
             { bg: "bg-fuchsia-50/70 border-fuchsia-200/80 text-fuchsia-800", btn: "bg-fuchsia-100 text-fuchsia-700 hover:bg-fuchsia-200", focus: "focus:ring-fuchsia-300 focus:border-fuchsia-400" }
         ];
 
-        // State Aplikasi Global
         let currentKelas = "9A";
-        let nilaiSiswa = {}; // Key: Nama Siswa, Value: Nilai
+        let nilaiSiswa = {};
 
-        // Inisialisasi awal nilai kosong untuk semua siswa di kedua kelas
+        // Inisialisasi awal nilai kosong
         urutanKolomSpreadsheet.forEach(nama => {
             nilaiSiswa[nama] = "";
         });
 
-        // Setup Tanggal default hari ini saat aplikasi dimuat pertama kali
         window.onload = function() {
             const dateInput = document.getElementById('input-tanggal');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.value = today;
-
+            if (dateInput) {
+                dateInput.value = new Date().toISOString().split('T')[0];
+            }
             switchKelas("9A");
             lucide.createIcons();
         };
 
-        // Ganti Kelas yang Ditampilkan
         function switchKelas(kelas) {
             currentKelas = kelas;
-            
-            // Perubahan Desain Tombol Filter Aktif
             const btn9A = document.getElementById('btn-kelas-9A');
             const btn9B = document.getElementById('btn-kelas-9B');
             const labelKelas = document.getElementById('label-daftar-siswa-kelas');
@@ -237,7 +204,6 @@
             renderGridSiswa();
         }
 
-        // Tampilkan Ulang Seluruh Grid Siswa Berdasarkan State Kelas
         function renderGridSiswa() {
             const gridContainer = document.getElementById('grid-siswa');
             gridContainer.innerHTML = '';
@@ -248,16 +214,13 @@
             const isKehadiran = document.getElementById('select-asesmen').value === "Kehadiran";
 
             listSiswa.forEach((nama, idx) => {
-                // Pilih tema warna pastel secara berurutan sesuai indeks siswa
                 const colorTheme = pastelColors[idx % pastelColors.length];
                 const inputId = `input-${nama.replace(/\s+/g, '-')}`;
                 const safeValue = nilaiSiswa[nama] !== undefined ? nilaiSiswa[nama] : "";
 
-                // Susun elemen DOM Kartu Siswa
                 const itemDiv = document.createElement('div');
                 itemDiv.className = `p-5 rounded-2xl border ${colorTheme.bg} flex flex-col justify-between shadow-xs hover:shadow-md transition duration-200`;
 
-                // Header Nama Siswa & Kolom Input Manual
                 let inputSection = `
                     <div class="flex items-center justify-between gap-3 mb-4">
                         <span class="font-extrabold text-slate-800 text-sm md:text-base leading-snug truncate" title="${nama}">
@@ -274,10 +237,8 @@
                     </div>
                 `;
 
-                // Layout Pemilihan Nilai Cepat (Pastel Grid)
                 let selectionSection = "";
                 if (isKehadiran) {
-                    // Grid Pintasan kehadiran khusus (5 Kolom dengan warna menarik)
                     selectionSection = `
                         <div class="grid grid-cols-5 gap-1.5 mt-auto">
                             <button onclick="setNilaiCepat('${nama}', 'Hadir')" class="py-2 rounded-xl text-xs font-black bg-emerald-500 hover:bg-emerald-600 text-white transition-all duration-150 transform active:scale-95 cursor-pointer text-center shadow-xs hover:shadow-md">H</button>
@@ -289,7 +250,6 @@
                         <p class="text-[9px] text-slate-400 font-extrabold mt-2 text-center uppercase tracking-wider">H: Hadir | I: Izin | S: Sakit | A: Alpa | B: Bolos</p>
                     `;
                 } else {
-                    // Grid Angka Standard 10 - 100
                     selectionSection = `
                         <div class="grid grid-cols-5 gap-1.5 mt-auto">
                             <button onclick="setNilaiCepat('${nama}', '10')" class="py-1.5 rounded-lg text-xs font-bold ${colorTheme.btn} transition cursor-pointer">10</button>
@@ -309,14 +269,13 @@
                 itemDiv.innerHTML = inputSection + selectionSection;
                 gridContainer.appendChild(itemDiv);
             });
+            lucide.createIcons();
         }
 
-        // Simpan input penulisan manual siswa
         function updateNilaiSiswa(nama, value) {
             nilaiSiswa[nama] = value;
         }
 
-        // Klik Tombol Pintasan Cepat
         function setNilaiCepat(nama, nilai) {
             nilaiSiswa[nama] = nilai;
             const inputId = `input-${nama.replace(/\s+/g, '-')}`;
@@ -326,12 +285,10 @@
             }
         }
 
-        // Switch Pilihan Asesmen
         function handleAsesmenChange() {
             renderGridSiswa();
         }
 
-        // Bersihkan seluruh isian form
         function kosongkanSemuaNilai() {
             if (confirm("Apakah Anda yakin ingin mengosongkan nilai semua siswa di kelas ini?")) {
                 const listSiswa = dataSiswa[currentKelas];
@@ -342,38 +299,32 @@
             }
         }
 
-        // Tampilkan Modal Loading
         function showLoading() {
             document.getElementById('modal-loading').classList.remove('hidden');
             document.getElementById('modal-loading').classList.add('flex');
         }
 
-        // Sembunyikan Modal Loading
         function hideLoading() {
             document.getElementById('modal-loading').classList.remove('flex');
             document.getElementById('modal-loading').classList.add('hidden');
         }
 
-        // Tampilkan Modal Notifikasi Sukses
         function showNotif(pesan) {
             document.getElementById('notif-message').innerText = pesan;
             document.getElementById('modal-notif').classList.remove('hidden');
             document.getElementById('modal-notif').classList.add('flex');
         }
 
-        // Tutup Notifikasi
         function tutupNotif() {
             document.getElementById('modal-notif').classList.remove('flex');
             document.getElementById('modal-notif').classList.add('hidden');
         }
 
-        // Integrasi Kirim Nilai ke Google Spreadsheet (Menggunakan Google Apps Script API)
         function kirimKeSpreadsheet() {
             const tanggal = document.getElementById('input-tanggal').value;
             const materi = document.getElementById('input-materi').value.trim();
             const asesmen = document.getElementById('select-asesmen').value;
 
-            // Validasi Input
             if (!tanggal) {
                 alert("Silakan tentukan Tanggal asesmen terlebih dahulu!");
                 return;
@@ -385,7 +336,6 @@
 
             showLoading();
 
-            // Susun baris payload data sesuai urutan kolom spreadsheet yang diminta
             const payload = {
                 tanggal: tanggal,
                 materi: materi,
@@ -393,17 +343,15 @@
                 nilai: {}
             };
 
-            // Masukkan data seluruh siswa 9A dan 9B ke dalam payload sesuai urutan kunci kolom
             urutanKolomSpreadsheet.forEach(nama => {
                 payload.nilai[nama] = nilaiSiswa[nama] !== undefined ? nilaiSiswa[nama] : "";
             });
 
-            // Menggunakan URL deployment Apps Script baru yang valid
             const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbytfl2zDpglfqWKE23nIvwNH48rb-WLrhWrpbcW2vWstldRGci7G8JVYXck94bNyTEKFQ/exec";
 
             fetch(WEB_APP_URL, {
                 method: "POST",
-                mode: "no-cors", // Mode no-cors agar pengiriman data berhasil melewati batasan CORS browser
+                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -412,15 +360,11 @@
             .then(() => {
                 hideLoading();
                 showNotif(`Berhasil mengirimkan data asesmen "${asesmen}" materi "${materi}" ke Google Spreadsheet Anda.`);
-                
-                // Opsional: Jika ingin otomatis mengosongkan nilai setelah sukses terkirim, hilangkan komentar di bawah ini
-                // urutanKolomSpreadsheet.forEach(nama => nilaiSiswa[nama] = "");
-                // renderGridSiswa();
             })
             .catch(error => {
                 hideLoading();
                 console.error("Error saat mengirim data:", error);
-                alert("Gagal mengirim data! Pastikan koneksi internet Anda lancar dan URL Google Apps Script Anda telah terdeploy dengan benar.");
+                alert("Gagal mengirim data! Pastikan koneksi internet Anda lancar.");
             });
         }
     </script>
